@@ -22,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		animation_player.play("start")
 		panel.global_position = get_global_mouse_position() - Vector2(panel.size.x / 2.0, panel.size.y / 2.0)
 		panel.visible = true
+		Engine.time_scale = 0.03
 	
 	
 	if event.is_action_released("ShowPanel"):
@@ -31,4 +32,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		if global.current_select_button == null:
 			return
 		global.current_select_button.pressed.emit()
-		
+		Engine.time_scale = 1.0
